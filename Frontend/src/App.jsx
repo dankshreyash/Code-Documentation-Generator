@@ -23,7 +23,7 @@ function App() {
   const [documentation, setDocumentation] = useState(null);
   const [loading, setLoading] = useState(false);
   const [history, setHistory] = useState([]);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem("docgen_darkMode");
     return saved ? JSON.parse(saved) : window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -119,6 +119,14 @@ function App() {
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
       />
+
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/20 dark:bg-black/40 z-30 md:hidden" 
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-h-screen overflow-auto">

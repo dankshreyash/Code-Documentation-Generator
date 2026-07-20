@@ -7,7 +7,7 @@ import {
 
 const HistoryPanel = ({ history, onRestore, onClear, isOpen, onToggle }) => {
   return (
-    <aside className="h-screen sticky top-0 shrink-0 flex">
+    <aside className="h-screen sticky top-0 shrink-0 flex relative z-40">
       {/* Collapsed Icon Strip — always visible */}
       <div className="w-14 h-full flex flex-col items-center py-4 gap-1 bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800">
         {/* Toggle button */}
@@ -34,8 +34,8 @@ const HistoryPanel = ({ history, onRestore, onClear, isOpen, onToggle }) => {
 
       {/* Expanded Panel — slides in/out */}
       <div
-        className={`h-full bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "w-64" : "w-0 border-r-0"
+        className={`absolute md:static left-14 top-0 h-full bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden transition-all duration-300 ease-in-out z-40 ${
+          isOpen ? "w-64 shadow-2xl md:shadow-none" : "w-0 border-r-0"
         }`}
       >
         <div className="w-64 h-full flex flex-col">
