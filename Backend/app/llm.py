@@ -12,13 +12,13 @@ client = Groq(api_key=GROQ_API_KEY)
 async def generate_documentation(code: str) -> dict:
     """
     Send code to Groq LLM and return parsed documentation JSON.
-    Uses llama-3.3-70b-versatile model for high-quality output.
+    Uses llama-3.1-8b-instant model for high-quality output.
     """
     prompt = get_documentation_prompt(code)
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-8b-instant",
             messages=[
                 {
                     "role": "system",
