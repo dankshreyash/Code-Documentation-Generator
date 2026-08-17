@@ -18,7 +18,7 @@ async def generate_documentation(code: str) -> dict:
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="qwen/qwen3.6-27b",
             messages=[
                 {
                     "role": "system",

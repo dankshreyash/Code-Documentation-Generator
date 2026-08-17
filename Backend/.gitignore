@@ -1,8 +1,5 @@
-.env
 venv/
 __pycache__/
 *.pyc
-*.pyo
-.idea/
-.vscode/
-uploads/
+.env
+uploads/*
